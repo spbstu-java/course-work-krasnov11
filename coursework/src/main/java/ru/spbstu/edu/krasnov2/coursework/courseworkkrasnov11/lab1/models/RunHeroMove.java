@@ -7,8 +7,8 @@ public class RunHeroMove implements HeroMove {
     @Override
     public void move(GraphicsContext gc, Hero hero, double x, double y) {
 
-        gc.setLineWidth(1);
-        gc.setStroke(Color.GREEN);
+        gc.setLineWidth(4);
+        gc.setStroke(Color.SKYBLUE);
         gc.beginPath();
         gc.moveTo(hero.getXPos(), hero.getYPos());
         gc.lineTo(x, y);
