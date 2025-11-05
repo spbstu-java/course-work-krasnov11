@@ -1,5 +1,4 @@
 package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab3;
-import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.HashMap;
 import java.util.Scanner;
