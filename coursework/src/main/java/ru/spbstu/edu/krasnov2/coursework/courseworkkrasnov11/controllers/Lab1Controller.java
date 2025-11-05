@@ -30,9 +30,7 @@ public class Lab1Controller {
 
         cbxHeroMoveType.setItems(heroes);
         cbxHeroMoveType.setValue(heroes.getFirst());
-        cbxHeroMoveType.setOnAction(e -> {
-            hero.setMoveStrategy(cbxHeroMoveType.getValue().getHeroMove());
-        });
+        cbxHeroMoveType.setOnAction(e -> hero.setMoveStrategy(cbxHeroMoveType.getValue().getHeroMove()));
 
         hero = new Hero(canvas1.getGraphicsContext2D(), "DarkDuck", 0, 0, heroes.getFirst().getHeroMove());
 
