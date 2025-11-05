@@ -5,48 +5,24 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.canvas.Canvas?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.HelloController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
     <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" VBox.vgrow="ALWAYS">
         <TabPane prefHeight="210.0" prefWidth="382.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-            <Tab fx:id="exercise1" text="Задание 1">
-                <VBox>
-                    <Label text="Тип передвижения героя">
-                        <VBox.margin>
-                            <Insets bottom="4.0" left="4.0" right="4.0" top="16.0" />
-                        </VBox.margin>
-                    </Label>
-                    <ComboBox fx:id="cbxHeroMoveType" prefHeight="25.0" prefWidth="259.0">
-                        <VBox.margin>
-                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                        </VBox.margin>
-                    </ComboBox>
-
-                    <Label text="Кликните на поле, что бы совершить передвижение героя">
-                        <VBox.margin>
-                            <Insets bottom="4.0" left="4.0" right="4.0" top="16.0" />
-                        </VBox.margin>
-                    </Label>
-                    <BorderPane>
-                        <Canvas fx:id="canvas1" width="4096" height="2048">
-                            <VBox.margin>
-                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                            </VBox.margin>
-                        </Canvas>
-                    </BorderPane>
-
-                </VBox>
+            <Tab fx:id="exercise1" text="Задание 1 - Перемещения героя">
+                <fx:include source="lab1.fxml" />
             </Tab>
-            <Tab fx:id="exercise2" text="Задание 2">
+            <Tab fx:id="exercise2" text="Задание 2 - Аннотированные методы">
 
             </Tab>
-            <Tab fx:id="exercise3" text="Задание 3">
+            <Tab fx:id="exercise3" text="Задание 3 - Словарь">
 
             </Tab>
-            <Tab fx:id="exercise4" text="Задание 4">
+            <Tab fx:id="exercise4" text="Задание 4 - Stream API">
 
             </Tab>
         </TabPane>
