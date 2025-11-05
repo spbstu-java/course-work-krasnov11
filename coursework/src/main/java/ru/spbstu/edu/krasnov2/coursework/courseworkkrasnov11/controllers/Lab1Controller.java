@@ -34,8 +34,6 @@ public class Lab1Controller {
 
         hero = new Hero(canvas1.getGraphicsContext2D(), "DarkDuck", 0, 0, heroes.getFirst().getHeroMove());
 
-        canvas1.setOnMouseClicked(me -> {
-            hero.move(me.getX(), me.getY());
-        });
+        canvas1.setOnMouseClicked(me -> hero.move(me.getX(), me.getY()));
     }
 }
