@@ -13,8 +13,10 @@ public class Caller {
         this.valueProvider = valueProvider;
     }
 
-    public void ExecuteCalls(Object obj)
+    public String executeCalls(Object obj)
             throws ValueProviderException, InvocationTargetException, IllegalAccessException {
+
+        var sb = new StringBuilder();
 
         if (obj == null)
             throw new IllegalArgumentException("Argument obj is null");
@@ -22,12 +24,13 @@ public class Caller {
         var objClass = obj.getClass();
 
         for (var m : objClass.getDeclaredMethods()){
-            System.out.printf("Process method: %s%n", m);
+
+            sb.append(String.format("%n%nProcess method: %s%n", m));
 
             var modifiers = m.getModifiers();
             if (Modifier.isPublic(modifiers))
             {
-                System.out.println("Method is public, call will not be executed");
+                sb.append("Method is public, call will not be executed");
                 continue;
             }
 
@@ -35,7 +38,8 @@ public class Caller {
 
                 if (a.annotationType().isAssignableFrom(CallCount.class)){
 
-                    System.out.println(a);
+                    sb.append(a);
+                    sb.append('\n');
 
                     var callCount = (CallCount)a;
                     if (callCount.value() > 0){
@@ -50,6 +54,7 @@ public class Caller {
                         // call
                         m.setAccessible(true);
                         for (int i = 0; i<callCount.value(); ++i){
+                            sb.append(String.format("Invoke %d%n", i+1));
                             m.invoke(obj, args);
                         }
                     }
@@ -58,5 +63,7 @@ public class Caller {
                 }
             }
         }
+
+        return sb.toString();
     }
 }
