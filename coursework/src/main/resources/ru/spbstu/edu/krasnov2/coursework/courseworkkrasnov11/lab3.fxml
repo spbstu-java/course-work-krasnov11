@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab3Controller"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab3Controller">
 
-</AnchorPane>
+    <columnConstraints>
+        <ColumnConstraints percentWidth="100"/>
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints vgrow="ALWAYS"/>
+    </rowConstraints>
+
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <padding><Insets top="20" right="4" bottom="20" left="4"/></padding>
+
+        <Button fx:id="btnOpenFile" onMouseClicked="#btnOpenFile_onMouseClicked"
+                GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+            Open
+        </Button>
+
+        <TextField fx:id="inputText" promptText="Введите фразу для перевода и нажмите Enter"
+                   onKeyTyped="#inputTest_Typed"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+        </TextField>
+    </GridPane>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="1">Словарь</Label>
+
+    <TextArea fx:id="txtDictionary" GridPane.columnIndex="0" GridPane.rowIndex="2">
+
+    </TextArea>
+
+</GridPane>
