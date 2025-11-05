@@ -4,9 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ComboBox;
 import javafx.scene.paint.Color;
-import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.ex1.HeroMoveInfo;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1.HeroMoveInfo;
 import javafx.collections.FXCollections;
-import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.ex1.models.*;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1.models.*;
 
 public class Lab1Controller {
     public Canvas canvas1;

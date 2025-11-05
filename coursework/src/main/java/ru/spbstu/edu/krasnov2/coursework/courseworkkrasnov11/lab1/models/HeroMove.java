@@ -1,4 +1,4 @@
-package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.ex1.models;
+package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1.models;
 
 import javafx.scene.canvas.GraphicsContext;
 

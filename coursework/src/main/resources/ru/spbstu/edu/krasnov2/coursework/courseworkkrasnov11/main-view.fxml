@@ -17,13 +17,13 @@
                 <fx:include source="lab1.fxml" />
             </Tab>
             <Tab fx:id="exercise2" text="Задание 2 - Аннотированные методы">
-
+                <fx:include source="lab2.fxml" />
             </Tab>
             <Tab fx:id="exercise3" text="Задание 3 - Словарь">
-
+                <fx:include source="lab3.fxml" />
             </Tab>
             <Tab fx:id="exercise4" text="Задание 4 - Stream API">
-
+                <fx:include source="lab4.fxml" />
             </Tab>
         </TabPane>
         <VBox.margin>

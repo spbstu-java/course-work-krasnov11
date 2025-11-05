@@ -1,7 +1,6 @@
-package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.ex1;
+package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1;
 
-import javafx.util.Callback;
-import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.ex1.models.HeroMove;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1.models.HeroMove;
 
 public class HeroMoveInfo {
 
