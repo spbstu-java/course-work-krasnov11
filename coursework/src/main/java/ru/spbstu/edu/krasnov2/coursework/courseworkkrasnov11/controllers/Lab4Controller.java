@@ -21,8 +21,6 @@ public class Lab4Controller {
     private OutputStream setupRedirect(){
         originalOut = System.out;
 
-        appendText("Привет!\n");
-
         var redirect = new OutputStream(){
 
             private final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
