@@ -7,35 +7,42 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab1Controller"
-           prefHeight="400.0" prefWidth="600.0">
-    <VBox>
-        <Label text="Тип передвижения героя">
-            <VBox.margin>
+           fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab1Controller">
+    <GridPane>
+
+        <columnConstraints>
+            <ColumnConstraints percentWidth="100"/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints vgrow="ALWAYS"/>
+        </rowConstraints>
+
+        <Label text="Тип передвижения героя" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="16.0" />
-            </VBox.margin>
+            </GridPane.margin>
         </Label>
-        <ComboBox fx:id="cbxHeroMoveType" prefHeight="25.0" prefWidth="259.0">
-            <VBox.margin>
+        <ComboBox fx:id="cbxHeroMoveType" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-            </VBox.margin>
+            </GridPane.margin>
         </ComboBox>
 
-        <Label text="Кликните на поле, что бы совершить передвижение героя">
-            <VBox.margin>
+        <Label text="Кликните на поле, что бы совершить передвижение героя"
+               GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="16.0" />
-            </VBox.margin>
+            </GridPane.margin>
         </Label>
-<!--        <BorderPane>-->
-<!--            <Canvas fx:id="canvas1" width="4096" height="4096">-->
-<!--                <VBox.margin>-->
-<!--                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />-->
-<!--                </VBox.margin>-->
-<!--            </Canvas>-->
-<!--        </BorderPane>-->
 
-        <Canvas fx:id="canvas1" width="4096" height="4096">
+        <Canvas fx:id="canvas1" width="4096" height="4096" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="16.0" />
+            </GridPane.margin>
         </Canvas>
-
-    </VBox>
+    </GridPane>
 </StackPane>
