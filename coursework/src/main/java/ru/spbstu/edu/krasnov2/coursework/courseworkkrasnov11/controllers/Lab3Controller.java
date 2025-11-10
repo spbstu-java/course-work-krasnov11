@@ -23,7 +23,7 @@ public class Lab3Controller {
     public TextField inputText;
     public TextArea txtDictionary;
 
-    public void btnOpenFile_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnOpenFile_onMouseClicked() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Открыть словарь");
 

@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab4Controller">
@@ -57,8 +48,7 @@
                 1 2 2 3 -18 45 1024 1024 -333
             </TextField>
 
-            <Button fx:id="btnRun1"
-                    onMouseClicked="#btnRun1_onMouseClicked">
+            <Button onMouseClicked="#btnRun1_onMouseClicked">
                 <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
                 </VBox.margin>
