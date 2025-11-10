@@ -45,7 +45,7 @@
                 <Insets bottom="4.0" left="4.0" right="4.0" top="16.0" />
             </GridPane.margin>
 
-            <Canvas fx:id="canvas1" width="2048" height="2048" >
+            <Canvas fx:id="canvas1" width="800" height="600" >
 
             </Canvas>
         </ScrollPane>

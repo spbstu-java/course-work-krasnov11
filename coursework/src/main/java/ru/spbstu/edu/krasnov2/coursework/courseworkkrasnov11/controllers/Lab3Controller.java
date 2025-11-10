@@ -3,7 +3,6 @@ package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
@@ -20,8 +19,9 @@ import java.util.Objects;
 
 public class Lab3Controller {
     public Button btnOpenFile;
-    public TextField inputText;
+    public TextArea txtOutput;
     public TextArea txtDictionary;
+    public TextArea txtInput;
 
     public void btnOpenFile_onMouseClicked() {
         FileChooser fileChooser = new FileChooser();
@@ -88,9 +88,9 @@ public class Lab3Controller {
             showError("Найдены дубликаты записей", String.format("Duplicate items in dictionary%n%s", ex));
         }
 
-        var translated = dictionary.translate(inputText.getText());
+        var translated = dictionary.translate(txtInput.getText());
 
-        showMessage("Translated", translated);
+        txtOutput.setText(translated);
     }
 
     public void btnTranslate_Clicked(MouseEvent mouseEvent) {
