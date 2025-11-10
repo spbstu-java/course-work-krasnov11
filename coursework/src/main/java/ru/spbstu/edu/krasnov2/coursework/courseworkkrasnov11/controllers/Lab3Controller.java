@@ -60,13 +60,13 @@ public class Lab3Controller {
         alert.showAndWait();
     }
 
-    private void showMessage(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Info");
-        alert.setHeaderText(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+//    private void showMessage(String title, String message) {
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Info");
+//        alert.setHeaderText(title);
+//        alert.setContentText(message);
+//        alert.showAndWait();
+//    }
 
     public void inputTest_Typed(KeyEvent keyEvent) {
         var ch = keyEvent.getCharacter();
@@ -93,7 +93,7 @@ public class Lab3Controller {
         txtOutput.setText(translated);
     }
 
-    public void btnTranslate_Clicked(MouseEvent mouseEvent) {
+    public void btnTranslate_Clicked() {
         translate();
     }
 }
