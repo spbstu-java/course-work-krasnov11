@@ -28,6 +28,7 @@
         <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints hgrow="ALWAYS"/>
+            <ColumnConstraints />
         </columnConstraints>
 
         <padding><Insets top="20" right="4" bottom="20" left="4"/></padding>
@@ -47,6 +48,13 @@
                 <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
             </GridPane.margin>
         </TextField>
+
+        <Button GridPane.columnIndex="2" GridPane.rowIndex="0" onMouseClicked="#btnTranslate_Clicked">
+            <GridPane.margin>
+                <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+            Translate
+        </Button>
     </GridPane>
 
     <Label GridPane.columnIndex="0" GridPane.rowIndex="1">Словарь</Label>

@@ -4,5 +4,6 @@ import javafx.scene.canvas.GraphicsContext;
 
 public interface HeroMove {
     void move(GraphicsContext gc, Hero hero, double x, double y);
+    String getMoveName();
 }
 

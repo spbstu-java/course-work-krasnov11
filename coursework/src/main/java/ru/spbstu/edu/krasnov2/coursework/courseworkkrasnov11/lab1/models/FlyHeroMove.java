@@ -20,4 +20,9 @@ public class FlyHeroMove implements HeroMove{
         hero.setXPos(x);
         hero.setYPos(y);
     }
+
+    @Override
+    public String getMoveName() {
+        return "Fly";
+    }
 }

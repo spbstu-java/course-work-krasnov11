@@ -72,20 +72,28 @@ public class Lab3Controller {
         var ch = keyEvent.getCharacter();
         if (Objects.equals(ch, "\n") || Objects.equals(ch, "\r")){
 
-            var dictionary = new WordDictionary();
-            try {
-                try (var reader = new StringReader(txtDictionary.getText())) {
-                    dictionary.Read(reader);
-                }
-            } catch (Lab3FormatException ex) {
-                showError("Неверный формат словаря", String.format("Dictionary has format error%n%s", ex));
-            } catch (Lab3DuplicateException ex) {
-                showError("Найдены дубликаты записей", String.format("Duplicate items in dictionary%n%s", ex));
-            }
-
-            var translated = dictionary.translate(inputText.getText());
-
-            showMessage("Translated", translated);
+            translate();
         }
+    }
+
+    private void translate() {
+        var dictionary = new WordDictionary();
+        try {
+            try (var reader = new StringReader(txtDictionary.getText())) {
+                dictionary.Read(reader);
+            }
+        } catch (Lab3FormatException ex) {
+            showError("Неверный формат словаря", String.format("Dictionary has format error%n%s", ex));
+        } catch (Lab3DuplicateException ex) {
+            showError("Найдены дубликаты записей", String.format("Duplicate items in dictionary%n%s", ex));
+        }
+
+        var translated = dictionary.translate(inputText.getText());
+
+        showMessage("Translated", translated);
+    }
+
+    public void btnTranslate_Clicked(MouseEvent mouseEvent) {
+        translate();
     }
 }

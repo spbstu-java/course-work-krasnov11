@@ -59,9 +59,9 @@
 
             <Button fx:id="btnRun1"
                     onMouseClicked="#btnRun1_onMouseClicked">
-                <GridPane.margin>
+                <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
-                </GridPane.margin>
+                </VBox.margin>
                 AVG
             </Button>
         </VBox>
@@ -81,9 +81,9 @@
             </TextField>
 
             <Button onMouseClicked="#btnRun2_onMouseClicked">
-                <GridPane.margin>
+                <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
-                </GridPane.margin>
+                </VBox.margin>
                 Upper with '_new_'
             </Button>
         </VBox>
@@ -103,9 +103,9 @@
             </TextField>
 
             <Button onMouseClicked="#btnRun3_onMouseClicked">
-                <GridPane.margin>
+                <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
-                </GridPane.margin>
+                </VBox.margin>
                 Squares
             </Button>
         </VBox>
@@ -125,9 +125,9 @@
             </TextField>
 
             <Button onMouseClicked="#btnRun4_onMouseClicked">
-                <GridPane.margin>
+                <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
-                </GridPane.margin>
+                </VBox.margin>
                 Last item
             </Button>
         </VBox>
@@ -146,9 +146,9 @@
                 1 2 3 4 5 6 7
             </TextField>
             <Button onMouseClicked="#btnRun5_onMouseClicked">
-                <GridPane.margin>
+                <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
-                </GridPane.margin>
+                </VBox.margin>
                 Sum of even
             </Button>
         </VBox>
@@ -168,9 +168,9 @@
             </TextField>
 
             <Button onMouseClicked="#btnRun6_onMouseClicked">
-                <GridPane.margin>
+                <VBox.margin>
                     <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
-                </GridPane.margin>
+                </VBox.margin>
                 Convert to Map
             </Button>
         </VBox>

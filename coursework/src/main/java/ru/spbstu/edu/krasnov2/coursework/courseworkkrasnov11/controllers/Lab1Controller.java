@@ -3,12 +3,16 @@ package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1.HeroMoveInfo;
 import javafx.collections.FXCollections;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab1.models.*;
 
 public class Lab1Controller {
+    public TextArea txtOutput;
+    private int _moveCount = 0;
+
     public Canvas canvas1;
 
     @FXML
@@ -34,6 +38,14 @@ public class Lab1Controller {
 
         hero = new Hero(canvas1.getGraphicsContext2D(), "DarkDuck", 0, 0, heroes.getFirst().getHeroMove());
 
-        canvas1.setOnMouseClicked(me -> hero.move(me.getX(), me.getY()));
+        canvas1.setOnMouseClicked(me -> {
+            hero.move(me.getX(), me.getY());
+            ++_moveCount;
+            txtOutput.appendText(String.format("%3d. %s into (%1.0f, %1.0f)%n",
+                    _moveCount,
+                    cbxHeroMoveType.getValue().getHeroMove().getMoveName(),
+                    me.getX(),
+                    me.getY()));
+        });
     }
 }
