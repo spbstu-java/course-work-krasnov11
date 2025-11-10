@@ -1,8 +1,11 @@
 package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers;
 
-import javafx.scene.control.Button;
+
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab4.ExecutableCmd;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab4.Lab4FormatException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,17 +13,22 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Lab4Controller {
     public TextArea txtOutput;
-    public Button btnRun;
+    public TextField txtInput1;
+    public TextField txtInput2;
+    public TextField txtInput3;
+    public TextField txtInput4;
+    public TextField txtInput5;
+    public TextField txtInput6;
 
-    private PrintStream originalOut;
 
-    private OutputStream setupRedirect(){
-        originalOut = System.out;
-
+    /// выполнит метод, сделав редирект stdio
+    private void ExecWithRedirectStdio(ExecutableCmd executableCmd){
+        var originalOut = System.out;
         var redirect = new OutputStream(){
 
             private final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -58,79 +66,49 @@ public class Lab4Controller {
 
         System.setOut(new PrintStream(redirect, true));
 
-        return redirect;
-    }
-
-    private void undoRedirect(){
-        System.setOut(originalOut);
-    }
-
-    public void btnRun_onMouseClicked(MouseEvent mouseEvent) {
-
-        try (var s = setupRedirect())
-        {
-            txtOutput.clear();
-
-            // метод, возвращающий среднее значение списка целых чисел
-            System.out.println("---AVG---");
-            var integers = new Integer[]{ 1, 2, 2, 3, -18, 45, 1024, 1024, -333};
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(integers)));
-            var avg = intAvg(List.of(integers));
-            System.out.printf("AVG = %f%n%n", avg);
-
-            // метод, приводящий все строки в списке в верхний регистр
-            // и добавляющий к ним префикс «_new_»
-            System.out.println("---Upper New---");
-            var strings = new String[]{
-                    "hello", " ", "Привет", "Respect"
-            };
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(strings)));
-            var str = upperConcatWithPrefix(List.of(strings));
-            System.out.printf("Upper New: %s%n%n", arrayAsString(str));
-
-            // метод, возвращающий список квадратов всех встречающихся только один раз элементов списка
-            System.out.println("---only one presented to square---");
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(integers)));
-            var sqtrList = onlyOnePresentToSquare(List.of(integers));
-            System.out.printf("Squares: %s%n%n", arrayAsString(sqtrList));
-
-            // метод, принимающий на вход коллекцию и возвращающий ее последний элемент
-            // или кидающий исключение, если коллекция пуста
-            System.out.println("---Last element---");
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(integers)));
-            System.out.printf("Last: %s%n", getLastOrThrow(List.of(integers)));
-            try {
-                getLastOrThrow(List.of(new Integer[0]));
-            }
-            catch (NoSuchElementException ex) {
-                System.out.println(ex.toString());
-            }
-            System.out.println();
-
-            // метод, принимающий на вход массив целых чисел, возвращающий сумму
-            // чётных чисел или 0, если чётных чисел нет
-            System.out.println("---Even Integers---");
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(integers)));
-            System.out.printf("Even sum: %s%n", sumEven(integers));
-            var empty = new Integer[0];
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(empty)));
-            System.out.printf("Even sum: %s%n%n", sumEven(empty));
-
-            // метод, преобразовывающий все строки в списке в Map,
-            // где первый символ – ключ, оставшиеся – значение
-            System.out.println("---Map---");
-            System.out.printf("Origin array: %s%n", arrayAsString(List.of(strings)));
-            var map = asSuperMap(List.of(strings));
-            for (var key : map.keySet()){
-                System.out.printf("'%c' : '%s'%n", key, map.get(key));
-            }
-        } catch (IOException e) {
-
+        try (redirect){
+            executableCmd.Exec();
+        }
+        catch (IOException e) {
             appendText("-------------------\n" + e);
         }
         finally {
-            undoRedirect();
+            System.setOut(originalOut);
         }
+    }
+
+    private List<Integer> GetIntegers(String text) throws Lab4FormatException {
+        var list = new ArrayList<Integer>();
+
+        if (text != null && !text.isEmpty()){
+            var items = text.split(" ");
+            for (var item : items){
+                var strValue = item.trim();
+                if (strValue.isEmpty())
+                    continue;
+
+                var intValue = Integer.parseInt(strValue);
+
+                list.add(intValue);
+            }
+        }
+
+        return list;
+    }
+
+    private List<String> GetStrings(String text) throws Lab4FormatException {
+        var list = new ArrayList<String>();
+
+        if (text != null && !text.isEmpty()){
+            var items = text.split(" ");
+            for (var item : items){
+                var strValue = item.trim();
+                if (!strValue.isEmpty())
+                    list.add(strValue);
+            }
+        }
+
+        return list;
     }
 
     // вывод массива
@@ -199,8 +177,9 @@ public class Lab4Controller {
 
     // метод, принимающий на вход массив целых чисел, возвращающий сумму
     // чётных чисел или 0, если чётных чисел нет
-    private static Integer sumEven(Integer[] array){
-        return Arrays.stream(array)
+    private static Integer sumEven(List<Integer> array){
+        return array
+                .stream()
                 .filter(n -> n % 2 == 0)
                 .reduce(Integer::sum)
                 .orElse(0);
@@ -223,6 +202,165 @@ public class Lab4Controller {
         javafx.application.Platform.runLater(() -> {
             txtOutput.appendText(text);
             txtOutput.setScrollTop(Double.MAX_VALUE);
+        });
+    }
+
+    public void btnRun1_onMouseClicked(MouseEvent mouseEvent) {
+        ExecWithRedirectStdio(() -> {
+            // метод, возвращающий среднее значение списка целых чисел
+            System.out.println("\n\n---AVG---");
+
+            List<Integer> integers = null;
+            try{
+                integers = GetIntegers(txtInput1.getText());
+            }
+            catch (Lab4FormatException | NumberFormatException e1){
+                System.out.printf("Error has occurred while tying to get data. %s%n", e1);
+            }
+
+            if (integers == null)
+                return;
+
+            System.out.printf("Origin array: %s%n", arrayAsString(integers));
+            var avg = intAvg(integers);
+            System.out.printf("AVG = %f%n%n", avg);
+        });
+    }
+
+    public void btnRun2_onMouseClicked(MouseEvent mouseEvent) {
+
+        ExecWithRedirectStdio(() -> {
+
+            // метод, приводящий все строки в списке в верхний регистр
+            // и добавляющий к ним префикс «_new_»
+            System.out.println("\n\n---Upper New---");
+
+            List<String> strings = null;
+            try {
+                strings = GetStrings(txtInput2.getText());
+            } catch (Lab4FormatException | NumberFormatException e1) {
+                System.out.printf("Error has occurred while tying to get data. %s%n", e1);
+            }
+
+            if (strings == null)
+                return;
+
+            System.out.printf("Origin array: %s%n", arrayAsString(strings));
+            var str = upperConcatWithPrefix(strings);
+            System.out.printf("Upper New: %s%n%n", arrayAsString(str));
+        });
+    }
+
+    public void btnRun3_onMouseClicked(MouseEvent mouseEvent) {
+        ExecWithRedirectStdio(() -> {
+
+            // метод, возвращающий список квадратов всех встречающихся только один раз элементов списка
+            System.out.println("\n\n---only one presented to square---");
+
+            List<Integer> integers = null;
+            try{
+                integers = GetIntegers(txtInput3.getText());
+            }
+            catch (Lab4FormatException | NumberFormatException e1){
+                System.out.printf("Error has occurred while tying to get data. %s%n", e1);
+            }
+
+            if (integers == null)
+                return;
+
+            System.out.printf("Origin array: %s%n", arrayAsString(integers));
+            var sqtrList = onlyOnePresentToSquare(integers);
+            System.out.printf("Squares: %s%n%n", arrayAsString(sqtrList));
+        });
+    }
+
+    public void btnRun4_onMouseClicked(MouseEvent mouseEvent) {
+        ExecWithRedirectStdio(() -> {
+            // метод, принимающий на вход коллекцию и возвращающий ее последний элемент
+            // или кидающий исключение, если коллекция пуста
+            System.out.println("\n\n---Last element---");
+
+            List<Integer> integers = null;
+            try{
+                integers = GetIntegers(txtInput4.getText());
+            }
+            catch (Lab4FormatException | NumberFormatException e1){
+                System.out.printf("Error has occurred while tying to get data. %s%n", e1);
+            }
+
+            if (integers == null)
+                return;
+
+            System.out.printf("Origin array: %s%n", arrayAsString(integers));
+            System.out.printf("Last: %s%n", getLastOrThrow(integers));
+            try {
+                getLastOrThrow(List.of(new Integer[0]));
+            }
+            catch (NoSuchElementException ex) {
+                System.out.println(ex.toString());
+            }
+            System.out.println();
+        });
+    }
+
+    public void btnRun5_onMouseClicked(MouseEvent mouseEvent) {
+        ExecWithRedirectStdio(() -> {
+            // метод, принимающий на вход массив целых чисел, возвращающий сумму
+            // чётных чисел или 0, если чётных чисел нет
+            System.out.println("\n\n---Even Integers---");
+
+            List<Integer> integers = null;
+            try{
+                integers = GetIntegers(txtInput5.getText());
+            }
+            catch (Lab4FormatException | NumberFormatException e1){
+                System.out.printf("Error has occurred while tying to get data. %s%n", e1);
+            }
+
+            if (integers == null)
+                return;
+
+            System.out.printf("Origin array: %s%n", arrayAsString(integers));
+            System.out.printf("Even sum: %s%n", sumEven(integers));
+            var empty = new Integer[0];
+            System.out.printf("Origin array: %s%n", arrayAsString(List.of(empty)));
+            System.out.printf("Even sum: %s%n%n", sumEven(List.of(empty)));
+
+        });
+    }
+
+    public void btnRun6_onMouseClicked(MouseEvent mouseEvent) {
+        ExecWithRedirectStdio(() -> {
+            // метод, преобразовывающий все строки в списке в Map,
+            // где первый символ – ключ, оставшиеся – значение
+            System.out.println("\n\n---Map---");
+
+            List<String> strings = null;
+            try {
+                strings = GetStrings(txtInput6.getText());
+            } catch (Lab4FormatException | NumberFormatException e1) {
+                System.out.printf("Error has occurred while tying to get data. %s%n", e1);
+            }
+
+            if (strings == null)
+                return;
+
+            System.out.printf("Origin array: %s%n", arrayAsString(strings));
+
+            Map<Character, String> map = null;
+            try {
+                map = asSuperMap(strings);
+            }
+            catch (Exception e){
+                System.out.printf("Error has occurred while tying to convert to map. %s%n", e);
+            }
+
+            if (map == null)
+                return;
+
+            for (var key : map.keySet()){
+                System.out.printf("'%c' : '%s'%n", key, map.get(key));
+            }
         });
     }
 }

@@ -11,16 +11,16 @@
 
     <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" VBox.vgrow="ALWAYS">
         <TabPane prefHeight="210.0" prefWidth="382.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-            <Tab fx:id="exercise1" text="Задание 1 - Перемещения героя">
+            <Tab fx:id="exercise1" text="1. Перемещения героя">
                 <fx:include source="lab1.fxml" />
             </Tab>
-            <Tab fx:id="exercise2" text="Задание 2 - Аннотированные методы">
+            <Tab fx:id="exercise2" text="2. Аннотированные методы">
                 <fx:include source="lab2.fxml" />
             </Tab>
-            <Tab fx:id="exercise3" text="Задание 3 - Словарь">
+            <Tab fx:id="exercise3" text="3. Словарь">
                 <fx:include source="lab3.fxml" />
             </Tab>
-            <Tab fx:id="exercise4" text="Задание 4 - Stream API">
+            <Tab fx:id="exercise4" text="4. Stream API">
                 <fx:include source="lab4.fxml" />
             </Tab>
         </TabPane>
