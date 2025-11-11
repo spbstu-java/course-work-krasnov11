@@ -4,8 +4,15 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class WalkHeroMove implements HeroMove {
+
+    private final GraphicsContext gc;
+
+    public WalkHeroMove(GraphicsContext gc){
+        this.gc = gc;
+    }
+
     @Override
-    public void move(GraphicsContext gc, Hero hero, double x, double y) {
+    public void move(HeroPosition hero, double x, double y) {
 
         gc.setLineWidth(2);
         gc.setStroke(Color.RED);
@@ -16,9 +23,6 @@ public class WalkHeroMove implements HeroMove {
 
         gc.setFill(Color.BLUE);
         gc.fillText(String.format("walk(%.0f, %.0f)", x, y), x, y);
-
-        hero.setXPos(x);
-        hero.setYPos(y);
     }
 
     @Override

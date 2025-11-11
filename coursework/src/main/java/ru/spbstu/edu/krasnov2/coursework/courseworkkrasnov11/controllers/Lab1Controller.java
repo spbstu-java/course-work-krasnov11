@@ -27,16 +27,16 @@ public class Lab1Controller {
         gc.fillRect(0, 0, 800, 600);
 
         var heroes = FXCollections.observableArrayList(
-                new HeroMoveInfo("Пеший ход", new WalkHeroMove()),
-                new HeroMoveInfo("Бегом", new RunHeroMove()),
-                new HeroMoveInfo("Полет", new FlyHeroMove())
+                new HeroMoveInfo("Пеший ход", new WalkHeroMove(gc)),
+                new HeroMoveInfo("Бегом", new RunHeroMove(gc)),
+                new HeroMoveInfo("Полет", new FlyHeroMove(gc))
         );
 
         cbxHeroMoveType.setItems(heroes);
         cbxHeroMoveType.setValue(heroes.getFirst());
         cbxHeroMoveType.setOnAction(e -> hero.setMoveStrategy(cbxHeroMoveType.getValue().getHeroMove()));
 
-        hero = new Hero(canvas1.getGraphicsContext2D(), "DarkDuck", 0, 0, heroes.getFirst().getHeroMove());
+        hero = new Hero("DarkDuck", 0, 0, heroes.getFirst().getHeroMove());
 
         canvas1.setOnMouseClicked(me -> {
             hero.move(me.getX(), me.getY());
