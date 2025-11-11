@@ -22,11 +22,11 @@ public class Lab2Controller {
         executer = new StdoutRedirectExecuter((str) -> textOut.appendText(str));
     }
 
-    public void btnClear_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnClear_onMouseClicked() {
         textOut.setText("");
     }
 
-    public void btnCall_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnCall_onMouseClicked() {
 
         try {
             executer.execute(() -> {

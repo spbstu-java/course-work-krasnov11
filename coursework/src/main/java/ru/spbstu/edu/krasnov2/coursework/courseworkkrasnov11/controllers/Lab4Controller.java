@@ -34,7 +34,7 @@ public class Lab4Controller {
         try {
             exec.execute(executableCmd);
         } catch (IOException e) {
-            appendText("Error has occurred while executing: " + e.toString());
+            appendText("Error has occurred while executing: " + e);
         }
     }
 
@@ -166,7 +166,7 @@ public class Lab4Controller {
         });
     }
 
-    public void btnRun1_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnRun1_onMouseClicked() {
         execute(() -> {
             // метод, возвращающий среднее значение списка целых чисел
             System.out.println("\n\n---AVG---");
@@ -188,7 +188,7 @@ public class Lab4Controller {
         });
     }
 
-    public void btnRun2_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnRun2_onMouseClicked() {
 
         execute(() -> {
 
@@ -212,7 +212,7 @@ public class Lab4Controller {
         });
     }
 
-    public void btnRun3_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnRun3_onMouseClicked() {
         execute(() -> {
 
             // метод, возвращающий список квадратов всех встречающихся только один раз элементов списка
@@ -235,7 +235,7 @@ public class Lab4Controller {
         });
     }
 
-    public void btnRun4_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnRun4_onMouseClicked() {
         execute(() -> {
             // метод, принимающий на вход коллекцию и возвращающий ее последний элемент
             // или кидающий исключение, если коллекция пуста
@@ -264,7 +264,7 @@ public class Lab4Controller {
         });
     }
 
-    public void btnRun5_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnRun5_onMouseClicked() {
         execute(() -> {
             // метод, принимающий на вход массив целых чисел, возвращающий сумму
             // чётных чисел или 0, если чётных чисел нет
@@ -290,7 +290,7 @@ public class Lab4Controller {
         });
     }
 
-    public void btnRun6_onMouseClicked(MouseEvent mouseEvent) {
+    public void btnRun6_onMouseClicked() {
         execute(() -> {
             // метод, преобразовывающий все строки в списке в Map,
             // где первый символ – ключ, оставшиеся – значение

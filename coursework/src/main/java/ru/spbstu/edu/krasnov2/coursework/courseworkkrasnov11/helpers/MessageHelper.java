@@ -11,7 +11,7 @@ public class MessageHelper {
         alert.showAndWait();
     }
 
-    private void showMessage(String title, String message) {
+    public void showMessage(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Info");
         alert.setHeaderText(title);

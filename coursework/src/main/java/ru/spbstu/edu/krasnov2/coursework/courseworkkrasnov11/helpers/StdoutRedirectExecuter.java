@@ -21,7 +21,7 @@ public class StdoutRedirectExecuter {
             private final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
             @Override
-            public void write(int b) throws IOException {
+            public void write(int b) {
 
                 buffer.write(b);
                 if (b == '\n' || buffer.size() > 1024){
