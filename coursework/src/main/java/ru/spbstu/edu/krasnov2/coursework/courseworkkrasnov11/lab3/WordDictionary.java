@@ -29,7 +29,7 @@ public class WordDictionary {
         _maxPartCount = 0;
     }
 
-    public void Read(Reader reader) throws Lab3FormatException, Lab3DuplicateException {
+    public void read(Reader reader) throws Lab3FormatException, Lab3DuplicateException {
 
         try(var scanner = new Scanner(reader)){
             var buffer = new StringBuffer();

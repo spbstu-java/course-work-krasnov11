@@ -54,7 +54,7 @@ public class StdoutRedirectExecuter {
         System.setOut(new PrintStream(redirect, true));
 
         try (redirect){
-            executableCmd.Exec();
+            executableCmd.execute();
         }
         finally {
             System.setOut(originalOut);

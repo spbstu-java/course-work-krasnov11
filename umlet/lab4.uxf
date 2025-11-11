@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>170</y>
+      <w>410</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>Lab4Controller
+--
+- execute(ExecutableCmd)
+- GetIntegers(String)
+- GetStrings(String)
+- String arrayAsString(Iterable&lt;?&gt;)
+- double intAvg(List&lt;Integer&gt;)
+- List&lt;String&gt; upperConcatWithPrefix(List&lt;String&gt;)
+- List&lt;Integer&gt; onlyOnePresentToSquare(List&lt;Integer&gt;)
+- &lt;T&gt; T getLastOrThrow(Collection&lt;T&gt;)
+- Integer sumEven(List&lt;Integer&gt;ay)
+- Map&lt;Character, String&gt; asSuperMap(List&lt;String&gt;)
+- appendText(String)
+--
+public void btnRun1_onMouseClicked()
+public void btnRun2_onMouseClicked()
+public void btnRun3_onMouseClicked()
+public void btnRun4_onMouseClicked() 
+public void btnRun5_onMouseClicked()
+public void btnRun6_onMouseClicked()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>50</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>List&lt;&gt;
+--
+..</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>50</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ArrayList&lt;&gt;
+--
+..</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>50</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Map&lt;&gt;
+--
+..</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>90</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>90</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>90</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>90</y>
+      <w>310</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>290.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>50</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>...
+--
+...</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

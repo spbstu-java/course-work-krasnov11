@@ -79,7 +79,7 @@
         </Label>
 
         <TextArea GridPane.columnIndex="0" GridPane.rowIndex="3"
-                  fx:id="txtOutput" editable="false">
+                  fx:id="txtOutput" editable="false" wrapText="true">
             <GridPane.margin>
                 <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
             </GridPane.margin>

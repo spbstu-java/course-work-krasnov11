@@ -64,7 +64,7 @@ public class Lab3Controller {
         var dictionary = new WordDictionary();
         try {
             try (var reader = new StringReader(txtDictionary.getText())) {
-                dictionary.Read(reader);
+                dictionary.read(reader);
             }
         } catch (Lab3FormatException ex) {
             MessageHelper.showError("Неверный формат словаря", String.format("Dictionary has format error%n%s", ex));
