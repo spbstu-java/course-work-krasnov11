@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.helpers.MessageHelper;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab3.Lab3DuplicateException;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab3.Lab3FormatException;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab3.WordDictionary;
@@ -47,25 +48,10 @@ public class Lab3Controller {
             txtDictionary.setText(content);
 
         } catch (IOException e) {
-            showError("Не удалось прочитать файл","Ошибка чтения файла: " + e.getMessage());
+            MessageHelper.showError("Не удалось прочитать файл","Ошибка чтения файла: " + e.getMessage());
         }
     }
 
-    private void showError(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-//    private void showMessage(String title, String message) {
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Info");
-//        alert.setHeaderText(title);
-//        alert.setContentText(message);
-//        alert.showAndWait();
-//    }
 
     public void inputTest_Typed(KeyEvent keyEvent) {
         var ch = keyEvent.getCharacter();
@@ -82,9 +68,9 @@ public class Lab3Controller {
                 dictionary.Read(reader);
             }
         } catch (Lab3FormatException ex) {
-            showError("Неверный формат словаря", String.format("Dictionary has format error%n%s", ex));
+            MessageHelper.showError("Неверный формат словаря", String.format("Dictionary has format error%n%s", ex));
         } catch (Lab3DuplicateException ex) {
-            showError("Найдены дубликаты записей", String.format("Duplicate items in dictionary%n%s", ex));
+            MessageHelper.showError("Найдены дубликаты записей", String.format("Duplicate items in dictionary%n%s", ex));
         }
 
         var translated = dictionary.translate(txtInput.getText());

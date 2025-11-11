@@ -4,16 +4,12 @@ package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab4.ExecutableCmd;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.helpers.ExecutableCmd;
+import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.helpers.StdoutRedirectExecuter;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab4.Lab4FormatException;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Lab4Controller {
@@ -25,55 +21,20 @@ public class Lab4Controller {
     public TextField txtInput5;
     public TextField txtInput6;
 
+    private final StdoutRedirectExecuter exec;
+
+    public Lab4Controller(){
+        exec = new StdoutRedirectExecuter(this::appendText);
+    }
+
 
     /// выполнит метод, сделав редирект stdio
-    private void ExecWithRedirectStdio(ExecutableCmd executableCmd){
-        var originalOut = System.out;
-        var redirect = new OutputStream(){
+    private void execute(ExecutableCmd executableCmd){
 
-            private final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-
-            @Override
-            public void write(int b) throws IOException {
-
-                buffer.write(b);
-                if (b == '\n' || buffer.size() > 1024){
-                    appendText(buffer.toString(StandardCharsets.UTF_8));
-                    buffer.reset();
-                }
-            }
-
-            @Override
-            public void flush() throws IOException {
-                super.flush();
-
-                if (buffer.size() > 0){
-                    appendText(buffer.toString());
-                    buffer.reset();
-                }
-            }
-
-            @Override
-            public void close() throws IOException {
-                super.close();
-
-                if (buffer.size() > 0){
-                    appendText(buffer.toString());
-                    buffer.reset();
-                }
-            }
-        };
-
-        System.setOut(new PrintStream(redirect, true));
-
-        try (redirect){
-            executableCmd.Exec();
-        }
-        catch (IOException e) {
-            appendText("-------------------\n" + e);
-        }
-        finally {
-            System.setOut(originalOut);
+        try {
+            exec.execute(executableCmd);
+        } catch (IOException e) {
+            appendText("Error has occurred while executing: " + e.toString());
         }
     }
 
@@ -206,7 +167,7 @@ public class Lab4Controller {
     }
 
     public void btnRun1_onMouseClicked(MouseEvent mouseEvent) {
-        ExecWithRedirectStdio(() -> {
+        execute(() -> {
             // метод, возвращающий среднее значение списка целых чисел
             System.out.println("\n\n---AVG---");
 
@@ -229,7 +190,7 @@ public class Lab4Controller {
 
     public void btnRun2_onMouseClicked(MouseEvent mouseEvent) {
 
-        ExecWithRedirectStdio(() -> {
+        execute(() -> {
 
             // метод, приводящий все строки в списке в верхний регистр
             // и добавляющий к ним префикс «_new_»
@@ -252,7 +213,7 @@ public class Lab4Controller {
     }
 
     public void btnRun3_onMouseClicked(MouseEvent mouseEvent) {
-        ExecWithRedirectStdio(() -> {
+        execute(() -> {
 
             // метод, возвращающий список квадратов всех встречающихся только один раз элементов списка
             System.out.println("\n\n---only one presented to square---");
@@ -275,7 +236,7 @@ public class Lab4Controller {
     }
 
     public void btnRun4_onMouseClicked(MouseEvent mouseEvent) {
-        ExecWithRedirectStdio(() -> {
+        execute(() -> {
             // метод, принимающий на вход коллекцию и возвращающий ее последний элемент
             // или кидающий исключение, если коллекция пуста
             System.out.println("\n\n---Last element---");
@@ -304,7 +265,7 @@ public class Lab4Controller {
     }
 
     public void btnRun5_onMouseClicked(MouseEvent mouseEvent) {
-        ExecWithRedirectStdio(() -> {
+        execute(() -> {
             // метод, принимающий на вход массив целых чисел, возвращающий сумму
             // чётных чисел или 0, если чётных чисел нет
             System.out.println("\n\n---Even Integers---");
@@ -330,7 +291,7 @@ public class Lab4Controller {
     }
 
     public void btnRun6_onMouseClicked(MouseEvent mouseEvent) {
-        ExecWithRedirectStdio(() -> {
+        execute(() -> {
             // метод, преобразовывающий все строки в списке в Map,
             // где первый символ – ключ, оставшиеся – значение
             System.out.println("\n\n---Map---");
