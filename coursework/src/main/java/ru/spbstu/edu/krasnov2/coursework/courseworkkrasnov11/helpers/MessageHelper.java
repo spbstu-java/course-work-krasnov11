@@ -11,11 +11,11 @@ public class MessageHelper {
         alert.showAndWait();
     }
 
-    public void showMessage(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Info");
-        alert.setHeaderText(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+//    public void showMessage(String title, String message) {
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("Info");
+//        alert.setHeaderText(title);
+//        alert.setContentText(message);
+//        alert.showAndWait();
+//    }
 }

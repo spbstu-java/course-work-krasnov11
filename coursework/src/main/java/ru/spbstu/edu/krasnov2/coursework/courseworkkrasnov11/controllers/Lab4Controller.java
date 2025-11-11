@@ -3,7 +3,6 @@ package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.helpers.ExecutableCmd;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.helpers.StdoutRedirectExecuter;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab4.Lab4FormatException;

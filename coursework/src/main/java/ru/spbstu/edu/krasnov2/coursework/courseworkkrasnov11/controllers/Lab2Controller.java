@@ -2,7 +2,6 @@ package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.helpers.StdoutRedirectExecuter;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab2.Caller;
 import ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.lab2.SimpleValueProvider;
