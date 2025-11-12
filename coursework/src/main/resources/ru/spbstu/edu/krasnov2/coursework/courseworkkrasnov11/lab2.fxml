@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab2Controller"
+          hgap="10" vgap="10">
+
+    <columnConstraints>
+        <ColumnConstraints percentWidth="100"/>
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints prefHeight="40"/>
+    </rowConstraints>
+
+    <padding><Insets top="20" right="4" bottom="20" left="4"/></padding>
+
+    <TextArea fx:id="textOut" GridPane.columnIndex="0" GridPane.rowIndex="0" editable="false" />
+
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button fx:id="btnCall" onMouseClicked="#btnCall_onMouseClicked">
+            <HBox.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </HBox.margin>
+            Call
+        </Button>
+        <Button fx:id="btnClear" onMouseClicked="#btnClear_onMouseClicked">
+            <HBox.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </HBox.margin>
+            Clear
+        </Button>
+    </HBox>
+</GridPane>

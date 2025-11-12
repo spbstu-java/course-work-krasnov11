@@ -1,0 +1,22 @@
+package ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class CourseApp extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(CourseApp.class.getResource("main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 480);
+        stage.setTitle("KrasnovVV, в5130904/30321");
+        stage.setScene(scene);
+
+        stage.show();
+    }
+
+
+}

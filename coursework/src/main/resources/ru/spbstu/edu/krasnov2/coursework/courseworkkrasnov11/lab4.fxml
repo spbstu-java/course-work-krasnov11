@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab4Controller">
+
+    <columnConstraints>
+        <ColumnConstraints percentWidth="50"/>
+        <ColumnConstraints percentWidth="50"/>
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+    </rowConstraints>
+
+    <ScrollPane GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="100"/>
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
+
+<!--            <GridPane.margin>-->
+<!--                <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>-->
+<!--            </GridPane.margin>-->
+
+            <VBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <Label>
+                    <VBox.margin>
+                        <Insets top="16" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    1. Среднее значение списка целых чисел:
+                </Label>
+                <TextField fx:id="txtInput1" >
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    1 2 2 3 -18 45 1024 1024 -333
+                </TextField>
+
+                <Button onMouseClicked="#btnRun1_onMouseClicked">
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    AVG
+                </Button>
+            </VBox>
+
+            <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <Label>
+                    <VBox.margin>
+                        <Insets top="16" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    2. Префикc '_new_', строки в верхнем регистре:
+                </Label>
+                <TextField fx:id="txtInput2" >
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    hello Привет Respect
+                </TextField>
+
+                <Button onMouseClicked="#btnRun2_onMouseClicked">
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    Upper with '_new_'
+                </Button>
+            </VBox>
+
+            <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+                <Label>
+                    <VBox.margin>
+                        <Insets top="16" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    3. Список квадратов встречающихся только один раз:
+                </Label>
+                <TextField fx:id="txtInput3" >
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    2 3 4 3 2 1 1 55 6 7
+                </TextField>
+
+                <Button onMouseClicked="#btnRun3_onMouseClicked">
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    Squares
+                </Button>
+            </VBox>
+
+            <VBox GridPane.rowIndex="3" GridPane.columnIndex="0">
+                <Label>
+                    <VBox.margin>
+                        <Insets top="16" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    4. Последний элемент:
+                </Label>
+                <TextField fx:id="txtInput4" >
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    1 3 8 65 4 3
+                </TextField>
+
+                <Button onMouseClicked="#btnRun4_onMouseClicked">
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    Last item
+                </Button>
+            </VBox>
+
+            <VBox GridPane.rowIndex="4" GridPane.columnIndex="0">
+                <Label>
+                    <VBox.margin>
+                        <Insets top="16" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    5. Сумма четных:
+                </Label>
+                <TextField fx:id="txtInput5" >
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    1 2 3 4 5 6 7
+                </TextField>
+                <Button onMouseClicked="#btnRun5_onMouseClicked">
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    Sum of even
+                </Button>
+            </VBox>
+
+            <VBox GridPane.rowIndex="5" GridPane.columnIndex="0">
+                <Label>
+                    <VBox.margin>
+                        <Insets top="16" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    6. Преобразовать в Map:
+                </Label>
+                <TextField fx:id="txtInput6" >
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    Qwerty music Hello World how Are You
+                </TextField>
+
+                <Button onMouseClicked="#btnRun6_onMouseClicked">
+                    <VBox.margin>
+                        <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+                    </VBox.margin>
+                    Convert to Map
+                </Button>
+            </VBox>
+        </GridPane>
+    </ScrollPane>
+
+    <GridPane GridPane.rowIndex="0" GridPane.columnIndex="1">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="100"/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints vgrow="ALWAYS"/>
+        </rowConstraints>
+
+        <TextArea fx:id="txtOutput" GridPane.rowIndex="0" GridPane.columnIndex="0" editable="false" wrapText="true">
+            <GridPane.margin>
+                <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+        </TextArea>
+    </GridPane>
+
+
+</GridPane>

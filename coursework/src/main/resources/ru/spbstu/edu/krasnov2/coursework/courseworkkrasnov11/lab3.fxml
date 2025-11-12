@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.Lab3Controller">
+
+    <columnConstraints>
+        <ColumnConstraints percentWidth="50"/>
+        <ColumnConstraints percentWidth="50"/>
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints/>
+    </rowConstraints>
+
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="100"/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints/>
+        </rowConstraints>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+            Словарь
+        </Label>
+
+        <TextArea fx:id="txtDictionary" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+        </TextArea>
+    </GridPane>
+
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="100"/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints/>
+            <RowConstraints vgrow="ALWAYS"/>
+        </rowConstraints>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+            Текст для перевода
+        </Label>
+
+        <TextArea fx:id="txtInput"
+                  GridPane.columnIndex="0" GridPane.rowIndex="1"
+                  promptText="Введите фразу для перевода и нажмите Enter"
+                  onKeyTyped="#inputTest_Typed">
+            <GridPane.margin>
+                <Insets top="4" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+            Dog Look to the window, dog look forward
+        </TextArea>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+            Перевод
+        </Label>
+
+        <TextArea GridPane.columnIndex="0" GridPane.rowIndex="3"
+                  fx:id="txtOutput" editable="false" wrapText="true">
+            <GridPane.margin>
+                <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+            </GridPane.margin>
+        </TextArea>
+
+    </GridPane>
+
+
+    <Button fx:id="btnOpenFile" onMouseClicked="#btnOpenFile_onMouseClicked"
+            GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+        </GridPane.margin>
+        Open
+    </Button>
+
+    <Button onMouseClicked="#btnTranslate_Clicked"
+            GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
+        </GridPane.margin>
+        Translate
+    </Button>
+</GridPane>

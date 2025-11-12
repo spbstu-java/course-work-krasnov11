@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.spbstu.edu.krasnov2.coursework.courseworkkrasnov11.controllers.MainController">
+<!--    <padding>-->
+<!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
+<!--    </padding>-->
+
+    <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" VBox.vgrow="ALWAYS">
+        <TabPane prefHeight="210.0" prefWidth="382.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <Tab fx:id="exercise1" text="1. Перемещения героя">
+                <fx:include source="lab1.fxml" />
+            </Tab>
+            <Tab fx:id="exercise2" text="2. Аннотированные методы">
+                <fx:include source="lab2.fxml" />
+            </Tab>
+            <Tab fx:id="exercise3" text="3. Словарь">
+                <fx:include source="lab3.fxml" />
+            </Tab>
+            <Tab fx:id="exercise4" text="4. Stream API">
+                <fx:include source="lab4.fxml" />
+            </Tab>
+        </TabPane>
+        <VBox.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+        </VBox.margin>
+        <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+        </padding>
+    </VBox>
+
+
+</VBox>
